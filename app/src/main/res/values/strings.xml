@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TicTacToe</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="player_1_0">Player 1: 0</string>
+    <string name="player_2_0">Player 2: 0</string>
+    <string name="reset">reset</string>
+</resources>
