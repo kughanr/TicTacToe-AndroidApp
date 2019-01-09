@@ -13,6 +13,7 @@ class TwoPlayerActivity : AppCompatActivity() {
 
     private var player1Turn : Boolean = true
 
+    private var turnNumber : Int = 0
     private var roundNumber : Int = 0
 
     private var p1Points : Double = 0.0
@@ -58,7 +59,7 @@ class TwoPlayerActivity : AppCompatActivity() {
             position.text = "O"
         }
 
-        roundNumber++
+        turnNumber++
 
 
             if(checkForWin()){
@@ -74,7 +75,7 @@ class TwoPlayerActivity : AppCompatActivity() {
                     toast("Player 2 Wins!")
                 }
             } else {
-                if (roundNumber == 9){
+                if (turnNumber == 9){
                     //draw
                     p1Points+=0.5
                     p2Points+=0.5
@@ -88,7 +89,7 @@ class TwoPlayerActivity : AppCompatActivity() {
 
     }
 
-    fun checkForWin() : Boolean {
+    private fun checkForWin() : Boolean {
         var fields : MutableList<MutableList<String>> = mutableListOf(mutableListOf("", "", ""), mutableListOf("", "", ""), mutableListOf("", "", ""))
 
         //fill position strings with X's and O's
@@ -137,7 +138,9 @@ class TwoPlayerActivity : AppCompatActivity() {
         }
         p1Score.text = "Player 1: $p1Points"
         p2Score.text = "Player 2: $p2Points"
-        roundNumber = 0
+        turnNumber = 0
+        roundNumber++
+        player1Turn = roundNumber % 2 == 0
     }
 
 

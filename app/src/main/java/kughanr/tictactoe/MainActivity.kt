@@ -14,11 +14,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val twoPlayer = Intent(this, TwoPlayerActivity::class.java)
+        onePlayerButton.setOnClickListener {
+            finish()
+            startActivity(Intent(this, OnePlayerActivity::class.java))
+        }
+
         twoPlayerButton.setOnClickListener {
             Log.d(tag, "starting two player mode")
             finish()
-            startActivity(twoPlayer)
+            startActivity(Intent(this, TwoPlayerActivity::class.java))
         }
     }
 }
